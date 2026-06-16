@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Volunteer Sign-Up</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col justify-between">
+
+    <main class="max-w-2xl mx-auto w-full p-6 bg-white shadow-md rounded-lg mt-10">
+        
+        <section id="admin-view">
+            <h2 class="text-2xl font-bold mb-6 text-indigo-700">Create a New Volunteer Event</h2>
+            <form id="event-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Event Title</label>
+                    <input type="text" id="event-title" required placeholder="e.g., Welcome Back Carnival" class="w-full p-2 border rounded-md">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Description / Details</label>
+                    <textarea id="event-desc" required placeholder="Date, time, location, and instructions..." class="w-full p-2 border rounded-md h-24"></textarea>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Volunteer Needs</label>
+                    <div id="activities-container" class="space-y-2">
+                        </div>
+                    <button type="button" id="add-activity-btn" class="mt-2 text-sm text-indigo-600 hover:underline font-medium">+ Add Activity Type</button>
+                </div>
+
+                <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-indigo-700 transition">Create Event & Generate Link</button>
+            </form>
+
+            <div id="link-share-box" class="mt-6 p-4 bg-green-50 border border-green-200 rounded-md hidden">
+                <p class="text-sm text-green-800 font-medium">🎉 Event created successfully! Share this link with volunteers:</p>
+                <input type="text" id="generated-link" readonly class="w-full p-2 mt-2 border bg-white rounded text-sm text-indigo-600 font-mono">
+            </div>
+        </section>
+
+        <section id="volunteer-view" class="hidden">
+            <h1 id="view-event-title" class="text-3xl font-bold text-gray-900 mb-2">Loading Event...</h1>
+            <p id="view-event-desc" class="text-gray-600 mb-8 whitespace-pre-line"></p>
+
+            <h3 class="text-xl font-semibold mb-4 border-b pb-2">Available Slots</h3>
+            <div id="slots-list" class="space-y-4">
+                </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-6 text-xs text-gray-400">
+        Minimal Volunteer App &bull; Powered by Google Sheets
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
